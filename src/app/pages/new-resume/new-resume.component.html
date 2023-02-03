@@ -1,0 +1,64 @@
+<div class="w3-main" style="margin-left:340px;margin-right:40px">
+
+  <div class="w3-container" id="designers" style="margin-top:75px">
+
+
+    <div class="container">
+
+      <h1> Resume:ID : 123456789 </h1>
+
+      <form [formGroup]="ResumeForm" (ngSubmit)="onSubmit()">
+
+
+        <table class="table table-bordered" formArrayName="details">
+          <tr>
+            <th colspan="2" style="border:0px;">Experience:</th>
+            <th style="border:0px;"></th>
+            <th style="border:0px;"></th>
+            <th style="border:0px;"></th>
+            <th style="border:0px;"></th>
+            <th style="border:0px;"></th>
+
+            <th width="150px"><button type="button" (click)="addResume()" class="btn btn-primary">Add More</button></th>
+          </tr>
+          <tr *ngFor="let detail of details().controls; let i=index" [formGroupName]="i">
+            <td>
+              Company Name:
+              <input type="text" formControlName="company" class="form-control">
+            </td>
+            <td>
+              Title Position:
+              <input type="text" formControlName="position" class="form-control">
+            </td>
+            <td>
+              <td>
+                Start date :
+                <input type="text" formControlName="start" class="form-control">
+              </td>
+              <td>
+                End Date :
+                <input type="text" formControlName="end" class="form-control">
+              </td>
+              <td>
+                Language :
+                <input type="text" formControlName="lang" class="form-control">
+              </td>
+              <td>
+                Description :
+                <input type="text-area" formControlName="desc" class="form-control">
+              </td>
+              <td>
+              <button (click)="removeResume(i)" class="btn btn-danger">Remove</button>
+            </td>
+          </tr>
+        </table>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+
+      </form>
+
+      <br />
+    </div>
+
+</div>
+</div>
